@@ -38,7 +38,7 @@ public class BrandsController {
 
     @GetMapping("/brand/{brand}")
     public ResponseEntity<List<brands>> getByName(@PathVariable String brandName){
-        return ResponseEntity.ok(repository.findAllByBrandContainingIgnoreCase(brandName));
+        return ResponseEntity.ok(repository.findAllByBrandNameContainingIgnoreCase(brandName));
     }
 
     @PostMapping

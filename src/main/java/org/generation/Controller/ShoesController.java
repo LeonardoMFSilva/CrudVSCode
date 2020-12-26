@@ -38,17 +38,17 @@ public class ShoesController {
 
     @GetMapping("/shoes/{shoes}")
     public ResponseEntity<List<shoes>> getByName(@PathVariable String shoeName){
-        return ResponseEntity.ok(repository.findAllByNameContainingIgnoreCase(shoeName));
+        return ResponseEntity.ok(repository.findAllByShoeNameContainingIgnoreCase(shoeName));
     }
     
     @GetMapping("/year/{year}")
     public ResponseEntity<List<shoes>> getByYear(@PathVariable String launchYear){
-        return ResponseEntity.ok(repository.findAllByYearContainingIgnoreCase(launchYear));
+        return ResponseEntity.ok(repository.findAllByLaunchYearContainingIgnoreCase(launchYear));
     }
 
     @GetMapping("/model/{model}")
     public ResponseEntity<List<shoes>> getByModel(@PathVariable String shoeModel){
-        return ResponseEntity.ok(repository.findAllByModelContainingIgnoreCase(shoeModel));
+        return ResponseEntity.ok(repository.findAllByShoeModelContainingIgnoreCase(shoeModel));
     }
 
     @GetMapping("/size/{size}")

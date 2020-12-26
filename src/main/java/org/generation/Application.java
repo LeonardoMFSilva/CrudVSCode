@@ -1,4 +1,4 @@
-package org.generation.hypeshoes;
+package org.generation;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -7,8 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+//import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+//import javax.validation.constraints.NotEmpty;
+//import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -40,8 +43,8 @@ public class shoes {
     @Size (min = 2, max =4)
     private String launchYear;
 
-    @NotNull
-    @Size (min = 1, max = 2)
+    
+    @Min(1)
     private int size;
 
     @ManyToOne
