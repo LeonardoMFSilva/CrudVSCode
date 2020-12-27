@@ -2,6 +2,7 @@ package org.generation.Controller;
 
 import java.util.List;
 
+import org.generation.Models.brands;
 import org.generation.Models.shoes;
 import org.generation.Repositories.shoesRepository;
 
@@ -31,30 +32,35 @@ public class ShoesController {
         return ResponseEntity.ok(repository.findAll());
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") // pegar os tênis pelo ID - ok
     public ResponseEntity<shoes> getById(@PathVariable long id){
         return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/shoes/{shoes}")
+    @GetMapping("/shoeName/{shoeName}") // pegar os tênis pelo nome - ok
     public ResponseEntity<List<shoes>> getByName(@PathVariable String shoeName){
         return ResponseEntity.ok(repository.findAllByShoeNameContainingIgnoreCase(shoeName));
     }
     
-    @GetMapping("/year/{year}")
+    @GetMapping("/launchYear/{launchYear}") // pegar os tênis pelo ano de lançamento - ok
     public ResponseEntity<List<shoes>> getByYear(@PathVariable String launchYear){
         return ResponseEntity.ok(repository.findAllByLaunchYearContainingIgnoreCase(launchYear));
     }
 
-    @GetMapping("/model/{model}")
+    @GetMapping("/shoeModel/{shoeModel}")//pegar os tênis pelo modelo - ok
     public ResponseEntity<List<shoes>> getByModel(@PathVariable String shoeModel){
         return ResponseEntity.ok(repository.findAllByShoeModelContainingIgnoreCase(shoeModel));
     }
 
-    @GetMapping("/size/{size}")
-    public ResponseEntity<List<shoes>> getByYear(@PathVariable int size){
+    @GetMapping("/size/{size}")// pegar os tênis pelo tamanho - ok
+    public ResponseEntity<List<shoes>> getBySize(@PathVariable int size){
         return ResponseEntity.ok(repository.findAllBySize(size));
     }
+
+   /* @GetMapping("/brandName/{brandName}")// pegar os tênis pela marca - nok
+    public ResponseEntity<List<shoes>> getByBrand(@PathVariable String brandName){
+        return ResponseEntity.ok(repository.findAllByBrandNameContainingIgnoreCase(brandName));
+    }*/
 
     @PostMapping
     public ResponseEntity<shoes> postShoe(@RequestBody shoes Shoe){
