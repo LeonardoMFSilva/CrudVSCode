@@ -2,7 +2,6 @@ package org.generation.Controller;
 
 import java.util.List;
 
-import org.generation.Models.brands;
 import org.generation.Models.shoes;
 import org.generation.Repositories.shoesRepository;
 
@@ -57,10 +56,10 @@ public class ShoesController {
         return ResponseEntity.ok(repository.findAllBySize(size));
     }
 
-   /* @GetMapping("/brandName/{brandName}")// pegar os tênis pela marca - nok
+     @GetMapping("/brandName/{brandName}")// pegar os tênis pela marca - ok
     public ResponseEntity<List<shoes>> getByBrand(@PathVariable String brandName){
-        return ResponseEntity.ok(repository.findAllByBrandNameContainingIgnoreCase(brandName));
-    }*/
+        return ResponseEntity.ok(repository.findAllByBrandBrandNameContainingIgnoreCase(brandName));
+    }
 
     @PostMapping
     public ResponseEntity<shoes> postShoe(@RequestBody shoes Shoe){

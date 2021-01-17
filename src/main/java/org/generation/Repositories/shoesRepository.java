@@ -14,5 +14,5 @@ public interface shoesRepository extends JpaRepository<shoes, Long> {
     public List <shoes> findAllBySize (int size);
     public List<shoes> findAllByShoeModelContainingIgnoreCase (String shoeModel);
     public List<shoes> findAllByLaunchYearContainingIgnoreCase (String launchYear);
-    // public List<shoes> findAllByBrandNameContainingIgnoreCase (String brandName) nok - verifica com o Primo;
+    public List<shoes> findAllByBrandBrandNameContainingIgnoreCase (String BrandbrandName);
 }
